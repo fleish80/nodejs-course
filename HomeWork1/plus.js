@@ -1,5 +1,5 @@
 let plus = (a, b) => {
-    return a + b;
+    return parseInt(a) + parseInt(b);
 };
 
-module.export = plus;
+module.exports = plus;

@@ -1,10 +1,18 @@
-let plus = require('./plus'),
-minus = require('./minus'),
-readLine = require('readline');
+const operators = {
+  '+': require('./plus'),
+  '-': require('./minus')
+};
+const readline = require('readline');
 
-var rl = readLine.createInterface({
-    input: process.stdin,
-    output: process.stdout
+const rl = readline.createInterface(process.stdin, process.stdout, null);
+
+rl.question('First Number? ', a => {
+  rl.question('Operator + or -', operator => {
+    rl.question('Secon Number?', b => {
+      console.log('operator', operator);
+      const res = operators[operator](a, b);
+      console.log(`${a}${operator}${b}=${res}`);
+      rl.close();
+    });
+  });
 });
-
-
